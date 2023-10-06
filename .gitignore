@@ -1,0 +1,6 @@
+obj/*
+push_swap
+*.obj
+*.out
+*.o
+checker_linux
