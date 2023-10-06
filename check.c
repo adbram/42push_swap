@@ -6,8 +6,13 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:46:30 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/06 19:52:13 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/06 20:43:20 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	check(int ac, char **av)
+{
+	
+}
