@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 18:18:59 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/07 22:03:45 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/07 22:11:42 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,30 @@ static int	strint_len(char *str)
 	return (len);
 }
 
-static int	cmp_strint_overflow(t_lsts *ls, char *str)
+static void	cmp_strint_overflow(t_lsts *ls, char *str, int sign)
 {
 	int	len;
 	int	i;
 
 	len = ft_strlen(str);
-	i = len;
-	while (i > len - 10)
+	i = 0;
+	while (len - i > len - 10)
+	{
+		if (sign > 0)
+		{
+			if (str[len - i] > INT_MAX[len - i])
+				ft_exit(ls);
+		}
+		else
+		{
+			if (str[len - i] > INT_MIN[len - i])
+				ft_exit(ls);
+		}
+		i++;
+	}
 }
 
-static int	check_int_overflow(t_lsts *ls, char *str)
+static void	check_int_overflow(t_lsts *ls, char *str, int sign)
 {
 	int	len;
 
@@ -51,8 +64,7 @@ static int	check_int_overflow(t_lsts *ls, char *str)
 	if (len > 10)
 		ft_exit(ls);
 	if (len == 10)
-		cmp_strint_overflow(ls, str);
-	return (len);
+		cmp_strint_overflow(ls, str, sign);
 }
 
 static int	get_sign(const char *str, int *i)
@@ -93,6 +105,6 @@ int	ft_atoi(t_lsts *ls, char *nptr)
 	}
 	if (nptr[i] != '\0')
 		ft_exit(ls);
-	printf("len = %i\n", check_int_overflow(ls, nptr));
+	check_int_overflow(ls, nptr, sign);
 	return (res * sign);
 }
