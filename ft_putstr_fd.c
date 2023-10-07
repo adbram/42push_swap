@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 19:28:58 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/07 20:05:29 by aberramo         ###   ########.fr       */
+/*   Created: 2023/10/07 18:05:56 by aberramo          #+#    #+#             */
+/*   Updated: 2023/10/07 18:06:53 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	ft_putstr_fd(char *str, int fd)
 {
-	t_lsts	*ls;
+	int	i;
 
-	(void)ac;
-	ls = NULL;
-	// init_ls(ls);
-	// check(ls, ac, av);
-	printf("%i\n", atoi(av[1]));
-	printf("%i\n", ft_atoi(ls, av[1]));
+	i = 0;
+	while (str[i])
+	{
+		write(fd, &str[i], 1);
+		i++;
+	}
 }

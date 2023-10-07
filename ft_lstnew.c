@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 19:28:58 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/07 20:05:29 by aberramo         ###   ########.fr       */
+/*   Created: 2023/10/07 18:15:19 by aberramo          #+#    #+#             */
+/*   Updated: 2023/10/07 18:15:58 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+t_lst	*ft_lstnew(t_lsts *ls, int value, int index)
 {
-	t_lsts	*ls;
+	t_lst	*new;
 
-	(void)ac;
-	ls = NULL;
-	// init_ls(ls);
-	// check(ls, ac, av);
-	printf("%i\n", atoi(av[1]));
-	printf("%i\n", ft_atoi(ls, av[1]));
+	new = (t_lst *)malloc(sizeof(t_lst));
+	if (!new)
+		ft_exit(ls);
+	new->value = value;
+	new->index = index;
+	new->next = NULL;
+	return (new);
 }
