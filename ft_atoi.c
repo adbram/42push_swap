@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 18:18:59 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/08 21:59:29 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/08 23:41:40 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	strint_len(char *str)
 	return (len);
 }
 
-static void	cmp_strint_overflow(t_lsts *ls, char *str, int sign)
+static void	cmp_strint_overflow(t_lst *la, t_lst *lb, char *str, int sign)
 {
 	int	len;
 	int	i;
@@ -46,29 +46,28 @@ static void	cmp_strint_overflow(t_lsts *ls, char *str, int sign)
 			if (str[len - i] < INT_MAX[10 - i])
 				break ;
 			if (str[len - i] > INT_MAX[10 - i])
-				ft_exit(ls);
+				ft_exit(la, lb);
 		}
 		else
 		{
 			if (str[len - i] < INT_MIN[10 - i])
 				break ;
 			if (str[len - i] > INT_MIN[10 - i])
-				ft_exit(ls);
+				ft_exit(la, lb);
 		}
 		i--;
 	}
 }
 
-static void	check_int_overflow(t_lsts *ls, char *str, int sign)
+static void	check_int_overflow(t_lst *la, t_lst *lb, char *str, int sign)
 {
 	int	len;
 
-	(void)ls;
 	len = strint_len(str);
 	if (len > 10)
-		ft_exit(ls);
+		ft_exit(la, lb);
 	if (len == 10)
-		cmp_strint_overflow(ls, str, sign);
+		cmp_strint_overflow(la, lb, str, sign);
 }
 
 static int	get_sign(const char *str, int *i)
@@ -85,7 +84,7 @@ static int	get_sign(const char *str, int *i)
 	return (sign);
 }
 
-int	ft_atoi(t_lsts *ls, char *nptr)
+int	ft_atoi(t_lst *la, t_lst *lb, char *nptr)
 {
 	int		i;
 	int		sign;
@@ -93,7 +92,6 @@ int	ft_atoi(t_lsts *ls, char *nptr)
 
 	i = 0;
 	res = 0;
-	(void)ls;
 	while (nptr[i] != '\0')
 	{
 		if (nptr[i] != ' ' && nptr[i] != '\f' && nptr[i] != '\n'
@@ -108,7 +106,7 @@ int	ft_atoi(t_lsts *ls, char *nptr)
 		i++;
 	}
 	if (nptr[i] != '\0')
-		ft_exit(ls);
-	check_int_overflow(ls, nptr, sign);
+		ft_exit(la, lb);
+	check_int_overflow(la, lb, nptr, sign);
 	return (res * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:49:07 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/07 18:10:55 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/08 23:31:51 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,10 @@ static void	ft_lstclear(t_lst *lst)
 	}
 }
 
-void	ft_exit(t_lsts *ls)
+void	ft_exit(t_lst *la, t_lst *lb)
 {
 	ft_putstr_fd("Error\n", 2);
-	if (ls)
-	{
-		ft_lstclear(ls->la);
-		ft_lstclear(ls->lb);
-		free(ls);
-	}
+	ft_lstclear(la);
+	ft_lstclear(lb);
 	exit(EXIT_FAILURE);
 }

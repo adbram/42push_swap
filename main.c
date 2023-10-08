@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:28:58 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/07 20:05:29 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/08 23:52:52 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 int	main(int ac, char **av)
 {
-	t_lsts	*ls;
+	t_lst	*la;
+	t_lst	*lb;
 
-	(void)ac;
-	ls = NULL;
-	// init_ls(ls);
-	// check(ls, ac, av);
-	printf("%i\n", atoi(av[1]));
-	printf("%i\n", ft_atoi(ls, av[1]));
+	la = NULL;
+	lb = NULL;
+	check(&la, &lb, ac, av);
+	while (la)
+	{
+		printf("la->index = %i, la->value = %i\n", la->index, la->value);
+		la = la->next;
+	}
 }

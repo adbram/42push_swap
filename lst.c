@@ -12,21 +12,22 @@
 
 #include "push_swap.h"
 
-void	parse_la(t_lsts *ls, int ac, char **av)
+void	parse_la(t_lst *la, t_lst *lb, int ac, char **av)
 {
-	int	i;
+	int		i;
+	t_lst	*new;
 
-	i = 1;
-	(void)ls;
-	(void)av;
-	while (i < ac)
+	i = ac - 1;
+	while (i > 0)
 	{
+		new = ft_lstnew(la, lb, ft_atoi(la, lb, av[i]), i);
+		new->next = la;
+		la = new;
+		i--;
 	}
-}
-
-void	init_ls(t_lsts *ls)
-{
-	ls = (t_lsts *)malloc(sizeof(t_lsts));
-	if (!ls)
-		ft_exit(ls);
+	while (la)
+	{
+		printf("la->index = %i, la->value = %i\n", la->index, la->value);
+		la = la->next;
+	}
 }

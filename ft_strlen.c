@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 21:57:13 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/07 21:59:17 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/08 22:01:33 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,5 @@ int	ft_strlen(char *str)
 	i = 0;
 	while (str[i])
 		i++;
-
 	return (i);
 }
