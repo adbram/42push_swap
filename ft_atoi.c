@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 18:18:59 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/07 22:11:42 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/08 21:59:29 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,24 @@ static void	cmp_strint_overflow(t_lsts *ls, char *str, int sign)
 	int	i;
 
 	len = ft_strlen(str);
-	i = 0;
-	while (len - i > len - 10)
+	i = 10;
+	while (i > 0)
 	{
 		if (sign > 0)
 		{
-			if (str[len - i] > INT_MAX[len - i])
+			if (str[len - i] < INT_MAX[10 - i])
+				break ;
+			if (str[len - i] > INT_MAX[10 - i])
 				ft_exit(ls);
 		}
 		else
 		{
-			if (str[len - i] > INT_MIN[len - i])
+			if (str[len - i] < INT_MIN[10 - i])
+				break ;
+			if (str[len - i] > INT_MIN[10 - i])
 				ft_exit(ls);
 		}
-		i++;
+		i--;
 	}
 }
 
