@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:28:58 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/08 23:52:52 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:15:13 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	main(int ac, char **av)
 	la = NULL;
 	lb = NULL;
 	check(&la, &lb, ac, av);
-	while (la)
-	{
-		printf("la->index = %i, la->value = %i\n", la->index, la->value);
-		la = la->next;
-	}
 }
+	// while (la)
+	// {
+	// 	printf("la->index = %i, la->value = %i\n", la->index, la->value);
+	// 	la = la->next;
+	// }
