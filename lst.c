@@ -12,6 +12,25 @@
 
 #include "push_swap.h"
 
+void	print_lsts(t_lst **la, t_lst **lb)
+{
+	t_lst	*tmp;
+
+	tmp = *la;
+	while (tmp)
+	{
+		printf("la->value = %i\n", tmp->value);
+		tmp = tmp->next;
+	}
+	printf("\n");
+	tmp = *lb;
+	while (tmp)
+	{
+		printf("lb->value = %i\n", tmp->value);
+		tmp = tmp->next;
+	}
+}
+
 void	parse_la(t_lst **la, t_lst **lb, int ac, char **av)
 {
 	int		i;
@@ -20,7 +39,7 @@ void	parse_la(t_lst **la, t_lst **lb, int ac, char **av)
 	i = ac - 1;
 	while (i > 0)
 	{
-		new = ft_lstnew(la, lb, ft_atoi(la, lb, av[i]), i);
+		new = ft_lstnew(la, lb, ft_atoi(la, lb, av[i]));
 		new->next = (*la);
 		(*la) = new;
 		i--;

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 19:28:58 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/09 18:44:19 by aberramo         ###   ########.fr       */
+/*   Created: 2023/10/09 16:19:27 by aberramo          #+#    #+#             */
+/*   Updated: 2023/10/09 16:23:34 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+t_lst	*ft_lstlast(t_lst **lst)
 {
-	t_lst	*la;
-	t_lst	*lb;
+	t_lst	*tmp;
 
-	la = NULL;
-	lb = NULL;
-	check(&la, &lb, ac, av);
+	tmp = *lst;
+	while (tmp)
+	{
+		if (tmp->next == NULL)
+			return (tmp);
+		tmp = tmp->next;
+	}
+	return (NULL);
 }
