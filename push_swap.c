@@ -6,8 +6,12 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:48:55 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/06 19:52:17 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:55:35 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	push_swap(t_lst **la, t_lst **lb, int la_len)
+{
+}
