@@ -6,7 +6,7 @@
 #    By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/06 19:22:31 by aberramo          #+#    #+#              #
-#    Updated: 2023/10/09 17:05:21 by aberramo         ###   ########.fr        #
+#    Updated: 2023/10/11 15:53:17 by aberramo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ SRCS			= main.c\
 					ft_atoi.c\
 					actions1.c\
 					actions2.c\
-					actions3.c
+					actions3.c\
+					algo1.c\
+					algo2.c
 OBJS			= $(SRCS:%.c=%.o)
 
 CC				= cc

@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:30:20 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/09 18:55:47 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:53:06 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,13 @@ void	rr(t_lst **la, t_lst **lb);
 void	rra(t_lst **la);
 void	rrb(t_lst **lb);
 void	rrr(t_lst **la, t_lst **lb);
+
+int		get_min1_la_mvs(t_lst **la, int la_len);
+int		get_min2_la_mvs(t_lst **la, int la_len);
+int		get_max1_la_mvs(t_lst **la, int la_len);
+int		get_max2_la_mvs(t_lst **la, int la_len);
+
+int		get_min_lb_mvs(t_lst **lb, int value);
+int		get_max_lb_mvs(t_lst **lb, int value);
 
 #endif
