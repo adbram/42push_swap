@@ -33,7 +33,7 @@ int	*lst_to_tab(t_data *data)
 	return (tab);
 }
 
-static void	sort_tab(int **tab)
+static void	sort_tab(int *tab)
 {
 	int	i;
 	int	sorted;
@@ -44,13 +44,13 @@ static void	sort_tab(int **tab)
 	{
 		i = 0;
 		sorted = 1;
-		while ((*tab)[i])
+		while (tab[i])
 		{
-			if ((*tab)[i + 1] && (*tab)[i] > (*tab)[i + 1])
+			if (tab[i + 1] && tab[i] > tab[i + 1])
 			{
-				tmp = (*tab)[i];
-				(*tab)[i] = (*tab)[i + 1];
-				(*tab)[i + 1] = tmp;
+				tmp = tab[i];
+				tab[i] = tab[i + 1];
+				tab[i + 1] = tmp;
 				sorted = 0;
 			}
 			i++;
@@ -65,7 +65,7 @@ void	give_lst_pos(t_data *data)
 	t_lst	*tmp;
 
 	tab = lst_to_tab(data);
-	sort_tab(&tab);
+	sort_tab(tab);
 	tmp = data->la;
 	while (tmp)
 	{
