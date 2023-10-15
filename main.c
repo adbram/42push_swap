@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:28:58 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/15 04:37:44 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/15 04:40:15 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int	main(int ac, char **av)
 	data->la = NULL;
 	data->lb = NULL;
 	check(data, ac, av);
-	print_lsts(data);
 	data->la_len = ac - 1;
+	data->median = data->la_len / 2;
 	push_swap(data);
-	print_lsts(data);
 }
