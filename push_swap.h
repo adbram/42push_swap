@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:30:20 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/11 15:53:06 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/15 02:39:49 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 typedef struct s_lst
 {
 	int				value;
+	int				pos;
 	struct s_lst	*next;
 }	t_lst;
 
@@ -32,6 +33,7 @@ void	check(t_lst **la, t_lst **lb, int ac, char **av);
 
 void	parse_la(t_lst **la, t_lst **lb, int ac, char **av);
 void	print_lsts(t_lst **la, t_lst **lb);
+void	give_lst_pos(t_lst **la);
 
 void	ft_exit(t_lst **la, t_lst **lb);
 void	ft_putstr_fd(char *str, int fd);

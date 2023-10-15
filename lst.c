@@ -16,18 +16,24 @@ void	print_lsts(t_lst **la, t_lst **lb)
 {
 	t_lst	*tmp;
 
-	tmp = *la;
-	while (tmp)
+	if (la)
 	{
-		printf("la->value = %i\n", tmp->value);
-		tmp = tmp->next;
+		tmp = *la;
+		while (tmp)
+		{
+			printf("la->value = %i\n", tmp->value);
+			tmp = tmp->next;
+		}
 	}
 	printf("\n");
-	tmp = *lb;
-	while (tmp)
+	if (lb)
 	{
-		printf("lb->value = %i\n", tmp->value);
-		tmp = tmp->next;
+		tmp = *lb;
+		while (tmp)
+		{
+			printf("lb->value = %i\n", tmp->value);
+			tmp = tmp->next;
+		}
 	}
 }
 
