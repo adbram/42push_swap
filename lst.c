@@ -12,6 +12,80 @@
 
 #include "push_swap.h"
 
+int	*lst_to_tab(t_lst **lst)
+{
+	int		*tab;
+	int		len;
+	t_lst	*tmp;
+	int		i;
+
+	len = ft_lstlen(lst);
+	tab = (int *)malloc(sizeof(int) * len + 1);
+	if (!tab)
+		ft_exit(lst, (t_lst **)NULL);
+	i = 0;
+	tmp = *lst;
+	while (tmp)
+	{
+		tab[i] = tmp->value;
+		tmp = tmp->next;
+		i++;
+	}
+	tab[i] = '\0';
+	return (tab);
+}
+
+static void	sort_tab(int **tab)
+{
+	int	i;
+	int	sorted;
+	int	tmp;
+
+	sorted = 0;
+	while (sorted == 0)
+	{
+		i = 0;
+		sorted = 1;
+		while ((*tab)[i])
+		{
+			if ((*tab)[i + 1] && (*tab)[i] > (*tab)[i + 1])
+			{
+				tmp = (*tab)[i];
+				(*tab)[i] = (*tab)[i + 1];
+				(*tab)[i + 1] = tmp;
+				sorted = 0;
+			}
+			i++;
+		}
+	}
+}
+
+void	give_lst_pos(t_lst **la)
+{
+	int		*tab;
+	int		i;
+	t_lst	*tmp;
+
+	tab = lst_to_tab(la);
+	sort_tab(&tab);
+	tmp = *la;
+	while (tmp)
+	{
+		i = 0;
+		while (tab[i])
+		{
+			if (tab[i] == tmp->value)
+			{
+				tmp->pos = i;
+				break ;
+			}
+			i++;
+		}
+		tmp = tmp->next;
+	}
+	free(tab);
+}
+
 void	print_lsts(t_lst **la, t_lst **lb)
 {
 	t_lst	*tmp;
@@ -21,7 +95,7 @@ void	print_lsts(t_lst **la, t_lst **lb)
 		tmp = *la;
 		while (tmp)
 		{
-			printf("la->value = %i\n", tmp->value);
+			printf("la->value = %i, la->pos = %i\n", tmp->value, tmp->pos);
 			tmp = tmp->next;
 		}
 	}
@@ -31,7 +105,7 @@ void	print_lsts(t_lst **la, t_lst **lb)
 		tmp = *lb;
 		while (tmp)
 		{
-			printf("lb->value = %i\n", tmp->value);
+			printf("lb->value = %i, lb->pos = %i\n", tmp->value, tmp->pos);
 			tmp = tmp->next;
 		}
 	}
@@ -51,3 +125,11 @@ void	parse_la(t_lst **la, t_lst **lb, int ac, char **av)
 		i--;
 	}
 }
+
+
+// i = 0;
+// while (tab[i])
+// {
+// 	printf("\"%i\"\n", tab[i]);
+// 	i++;
+// }

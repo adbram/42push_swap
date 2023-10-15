@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 19:28:58 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/15 04:01:02 by aberramo         ###   ########.fr       */
+/*   Created: 2023/10/15 03:29:43 by aberramo          #+#    #+#             */
+/*   Updated: 2023/10/15 03:31:34 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	ft_lstlen(t_lst **lst)
 {
-	t_lst	*la;
-	t_lst	*lb;
+	t_lst	*tmp;
+	int		i;
 
-	la = NULL;
-	lb = NULL;
-	check(&la, &lb, ac, av);
-	print_lsts(&la, &lb);
-	push_swap(&la, &lb, ac - 1);
-	print_lsts(&la, &lb);
+	tmp = *lst;
+	i = 0;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
 }

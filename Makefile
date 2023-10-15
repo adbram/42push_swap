@@ -6,7 +6,7 @@
 #    By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/06 19:22:31 by aberramo          #+#    #+#              #
-#    Updated: 2023/10/15 02:21:11 by aberramo         ###   ########.fr        #
+#    Updated: 2023/10/15 03:32:47 by aberramo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,15 +18,16 @@ SRCS			= main.c\
 					ft_exit.c\
 					check.c\
 					lst.c\
-					ft_lstndlast.c\
 					ft_lstnew.c\
+					ft_lstlen.c\
+					ft_lstndlast.c\
+					ft_lstlast.c\
 					ft_strlen.c\
 					ft_putstr_fd.c\
 					ft_atoi.c\
-					actions3.c\
-					ft_lstlast.c\
 					actions1.c\
-					actions2.c
+					actions2.c\
+					actions3.c
 OBJS			= $(SRCS:%.c=%.o)
 
 CC				= cc
