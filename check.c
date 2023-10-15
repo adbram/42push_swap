@@ -6,37 +6,37 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:46:30 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/09 15:28:15 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/15 04:16:15 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	check_double_values(t_lst **la, t_lst **lb)
+static void	check_double_values(t_data *data)
 {
 	t_lst	*tmp1;
 	t_lst	*tmp2;
 
-	tmp1 = *la;
+	tmp1 = data->la;
 	while (tmp1)
 	{
 		tmp2 = tmp1->next;
 		while (tmp2)
 		{
 			if (tmp1->value == tmp2->value)
-				ft_exit(la, lb);
+				ft_exit(data);
 			tmp2 = tmp2->next;
 		}
 		tmp1 = tmp1->next;
 	}
 }
 
-void	check(t_lst **la, t_lst **lb, int ac, char **av)
+void	check(t_data *data, int ac, char **av)
 {
 	if (ac == 1)
 		exit(EXIT_SUCCESS);
-	parse_la(la, lb, ac, av);
+	parse_la(data, ac, av);
 	if (ac == 2)
 		exit(EXIT_SUCCESS);
-	check_double_values(la, lb);
+	check_double_values(data);
 }

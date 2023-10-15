@@ -6,18 +6,18 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 03:29:43 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/15 03:31:34 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/15 04:36:23 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lstlen(t_lst **lst)
+int	ft_lstlen(t_lst *lst)
 {
 	t_lst	*tmp;
 	int		i;
 
-	tmp = *lst;
+	tmp = lst;
 	i = 0;
 	while (tmp)
 	{

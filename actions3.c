@@ -6,55 +6,55 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:40:09 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/09 18:38:15 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/15 04:36:01 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_lst **la)
+void	rra(t_data *data)
 {
 	t_lst	*ndlast;
 
-	ndlast = ft_lstndlast(la);
+	ndlast = ft_lstndlast(data->la);
 	if (ndlast != NULL && ndlast->next != NULL)
 	{
-		ndlast->next->next = *la;
-		*la = ndlast->next;
+		ndlast->next->next = data->la;
+		data->la = ndlast->next;
 		ndlast->next = NULL;
 		ft_putstr_fd("rra\n", 1);
 	}
 }
 
-void	rrb(t_lst **lb)
+void	rrb(t_data *data)
 {
 	t_lst	*ndlast;
 
-	ndlast = ft_lstndlast(lb);
+	ndlast = ft_lstndlast(data->lb);
 	if (ndlast != NULL && ndlast->next != NULL)
 	{
-		ndlast->next->next = *lb;
-		*lb = ndlast->next;
+		ndlast->next->next = data->lb;
+		data->lb = ndlast->next;
 		ndlast->next = NULL;
 		ft_putstr_fd("rrb\n", 1);
 	}
 }
 
-void	rrr(t_lst **la, t_lst **lb)
+void	rrr(t_data *data)
 {
 	t_lst	*ndlast_la;
 	t_lst	*ndlast_lb;
 
-	ndlast_la = ft_lstndlast(la);
-	ndlast_lb = ft_lstndlast(lb);
+	ndlast_la = ft_lstndlast(data->la);
+	ndlast_lb = ft_lstndlast(data->lb);
 	if (ndlast_la != NULL && ndlast_la->next != NULL
 		&& ndlast_lb != NULL && ndlast_lb->next != NULL)
 	{
-		ndlast_la->next->next = *la;
-		*la = ndlast_la->next;
+		ndlast_la->next->next = data->la;
+		data->la = ndlast_la->next;
 		ndlast_la->next = NULL;
-		ndlast_lb->next->next = *lb;
-		*lb = ndlast_lb->next;
+		ndlast_lb->next->next = data->lb;
+		data->lb = ndlast_lb->next;
 		ndlast_lb->next = NULL;
 		ft_putstr_fd("rrr\n", 1);
 	}

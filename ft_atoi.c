@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 18:18:59 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/09 15:05:14 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/15 04:14:27 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	strint_len(char *str)
 	return (len);
 }
 
-static void	cmp_strint_overflow(t_lst **la, t_lst **lb, char *str, int sign)
+static void	cmp_strint_overflow(t_data *data, char *str, int sign)
 {
 	int	len;
 	int	i;
@@ -46,28 +46,28 @@ static void	cmp_strint_overflow(t_lst **la, t_lst **lb, char *str, int sign)
 			if (str[len - i] < INT_MAX[10 - i])
 				break ;
 			if (str[len - i] > INT_MAX[10 - i])
-				ft_exit(la, lb);
+				ft_exit(data);
 		}
 		else
 		{
 			if (str[len - i] < INT_MIN[10 - i])
 				break ;
 			if (str[len - i] > INT_MIN[10 - i])
-				ft_exit(la, lb);
+				ft_exit(data);
 		}
 		i--;
 	}
 }
 
-static void	check_int_overflow(t_lst **la, t_lst **lb, char *str, int sign)
+static void	check_int_overflow(t_data *data, char *str, int sign)
 {
 	int	len;
 
 	len = strint_len(str);
 	if (len > 10)
-		ft_exit(la, lb);
+		ft_exit(data);
 	if (len == 10)
-		cmp_strint_overflow(la, lb, str, sign);
+		cmp_strint_overflow(data, str, sign);
 }
 
 static int	get_sign(const char *str, int *i)
@@ -84,7 +84,7 @@ static int	get_sign(const char *str, int *i)
 	return (sign);
 }
 
-int	ft_atoi(t_lst **la, t_lst **lb, char *nptr)
+int	ft_atoi(t_data *data, char *nptr)
 {
 	int		i;
 	int		sign;
@@ -106,7 +106,7 @@ int	ft_atoi(t_lst **la, t_lst **lb, char *nptr)
 		i++;
 	}
 	if (nptr[i] != '\0')
-		ft_exit(la, lb);
-	check_int_overflow(la, lb, nptr, sign);
+		ft_exit(data);
+	check_int_overflow(data, nptr, sign);
 	return (res * sign);
 }

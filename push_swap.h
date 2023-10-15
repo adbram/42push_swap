@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:30:20 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/15 04:08:07 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/15 04:36:39 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,40 +30,40 @@ typedef struct s_lst
 
 typedef struct s_data
 {
-	t_lst	**la;
-	t_lst	**lb;
-	int		ac;
+	t_lst	*la;
+	t_lst	*lb;
+	int		la_len;
 	int		median;
 }	t_data;
 
-void	push_swap(t_lst **la, t_lst **lb, int la_len);
-void	check(t_lst **la, t_lst **lb, int ac, char **av);
+void	push_swap(t_data *data);
+void	check(t_data *data, int ac, char **av);
 
-void	parse_la(t_lst **la, t_lst **lb, int ac, char **av);
-void	print_lsts(t_lst **la, t_lst **lb);
-void	give_lst_pos(t_lst **la);
-int		*lst_to_tab(t_lst **lst);
+void	parse_la(t_data *data, int ac, char **av);
+void	print_lsts(t_data *data);
+void	give_lst_pos(t_data *data);
+int		*lst_to_tab(t_data *data);
 
-void	ft_exit(t_lst **la, t_lst **lb);
+void	ft_exit(t_data *data);
 void	ft_putstr_fd(char *str, int fd);
-int		ft_atoi(t_lst **la, t_lst **lb, char *nptr);
+int		ft_atoi(t_data *data, char *nptr);
 int		ft_strlen(char *str);
 
-t_lst	*ft_lstnew(t_lst **la, t_lst **lb, int value);
-t_lst	*ft_lstlast(t_lst **lst);
-t_lst	*ft_lstndlast(t_lst **lst);
-int		ft_lstlen(t_lst **lst);
+t_lst	*ft_lstnew(t_data *data, int value);
+t_lst	*ft_lstlast(t_lst *lst);
+t_lst	*ft_lstndlast(t_lst *lst);
+int		ft_lstlen(t_lst *lst);
 
-void	sa(t_lst **la);
-void	sb(t_lst **lb);
-void	ss(t_lst **la, t_lst **lb);
-void	pa(t_lst **la, t_lst **lb);
-void	pb(t_lst **la, t_lst **lb);
-void	ra(t_lst **la);
-void	rb(t_lst **lb);
-void	rr(t_lst **la, t_lst **lb);
-void	rra(t_lst **la);
-void	rrb(t_lst **lb);
-void	rrr(t_lst **la, t_lst **lb);
+void	sa(t_data *data);
+void	sb(t_data *data);
+void	ss(t_data *data);
+void	pa(t_data *data);
+void	pb(t_data *data);
+void	ra(t_data *data);
+void	rb(t_data *data);
+void	rr(t_data *data);
+void	rra(t_data *data);
+void	rrb(t_data *data);
+void	rrr(t_data *data);
 
 #endif

@@ -12,19 +12,17 @@
 
 #include "push_swap.h"
 
-int	*lst_to_tab(t_lst **lst)
+int	*lst_to_tab(t_data *data)
 {
 	int		*tab;
-	int		len;
 	t_lst	*tmp;
 	int		i;
 
-	len = ft_lstlen(lst);
-	tab = (int *)malloc(sizeof(int) * len + 1);
+	tab = (int *)malloc(sizeof(int) * data->la_len + 1);
 	if (!tab)
-		ft_exit(lst, (t_lst **)NULL);
+		ft_exit(data);
 	i = 0;
-	tmp = *lst;
+	tmp = data->la;
 	while (tmp)
 	{
 		tab[i] = tmp->value;
@@ -60,15 +58,15 @@ static void	sort_tab(int **tab)
 	}
 }
 
-void	give_lst_pos(t_lst **la)
+void	give_lst_pos(t_data *data)
 {
 	int		*tab;
 	int		i;
 	t_lst	*tmp;
 
-	tab = lst_to_tab(la);
+	tab = lst_to_tab(data);
 	sort_tab(&tab);
-	tmp = *la;
+	tmp = data->la;
 	while (tmp)
 	{
 		i = 0;
@@ -86,13 +84,13 @@ void	give_lst_pos(t_lst **la)
 	free(tab);
 }
 
-void	print_lsts(t_lst **la, t_lst **lb)
+void	print_lsts(t_data *data)
 {
 	t_lst	*tmp;
 
-	if (la)
+	if (data->la)
 	{
-		tmp = *la;
+		tmp = data->la;
 		while (tmp)
 		{
 			printf("la->value = %i, la->pos = %i\n", tmp->value, tmp->pos);
@@ -100,9 +98,9 @@ void	print_lsts(t_lst **la, t_lst **lb)
 		}
 	}
 	printf("\n");
-	if (lb)
+	if (data->lb)
 	{
-		tmp = *lb;
+		tmp = data->lb;
 		while (tmp)
 		{
 			printf("lb->value = %i, lb->pos = %i\n", tmp->value, tmp->pos);
@@ -111,7 +109,7 @@ void	print_lsts(t_lst **la, t_lst **lb)
 	}
 }
 
-void	parse_la(t_lst **la, t_lst **lb, int ac, char **av)
+void	parse_la(t_data *data, int ac, char **av)
 {
 	int		i;
 	t_lst	*new;
@@ -119,13 +117,12 @@ void	parse_la(t_lst **la, t_lst **lb, int ac, char **av)
 	i = ac - 1;
 	while (i > 0)
 	{
-		new = ft_lstnew(la, lb, ft_atoi(la, lb, av[i]));
-		new->next = (*la);
-		(*la) = new;
+		new = ft_lstnew(data, ft_atoi(data, av[i]));
+		new->next = data->la;
+		data->la = new;
 		i--;
 	}
 }
-
 
 // i = 0;
 // while (tab[i])
