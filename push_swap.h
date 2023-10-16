@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:30:20 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/16 21:10:16 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/16 21:33:18 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,6 @@ void	rrr(t_data *data);
 
 void	exec_move(t_data *data, t_moves *move);
 t_moves	*calc_next_move(t_data *data);
+void	moves_cmp(t_moves *curr_moves, t_moves *min_moves);
 
 #endif

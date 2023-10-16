@@ -6,28 +6,11 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:48:55 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/16 21:19:26 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/16 21:35:11 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	exec_move(t_data *data, t_moves *move)
-{
-	if (move->rb != 0)
-		while (move->rb-- > 0)
-			rb(data);
-	else if (move->rrb != 0)
-		while (move->rrb-- > 0)
-			rrb(data);
-	if (move->ra != 0)
-		while (move->ra-- > 0)
-			ra(data);
-	else if (move->rra != 0)
-		while (move->rra-- > 0)
-			rra(data);
-	pa(data);
-}
 
 void	move_st_value(t_data *data)
 {
@@ -84,16 +67,3 @@ void	push_swap(t_data *data)
 	}
 	move_st_value(data);
 }
-	// printf("curr_moves->ra = %i\n", curr_moves->ra);
-	// printf("curr_moves->rra = %i\n", curr_moves->rra);
-	// printf("curr_moves->rb = %i\n", curr_moves->rb);
-	// printf("curr_moves->rrb = %i\n", curr_moves->rrb);
-	// printf("curr_moves->value = %i\n", curr_moves->value);
-	// printf("curr_moves->total = %i\n\n", curr_moves->total);
-
-	// printf("min_moves->ra = %i\n", min_moves->ra);
-	// printf("min_moves->rra = %i\n", min_moves->rra);
-	// printf("min_moves->rb = %i\n", min_moves->rb);
-	// printf("min_moves->rrb = %i\n", min_moves->rrb);
-	// printf("min_moves->value = %i\n", min_moves->value);
-	// printf("min_moves->total = %i\n\n", min_moves->total);
