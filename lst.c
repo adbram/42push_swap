@@ -18,7 +18,7 @@ int	*lst_to_tab(t_data *data)
 	t_lst	*tmp;
 	int		i;
 
-	tab = (int *)malloc(sizeof(int) * data->la_len + 1);
+	tab = (int *)malloc(sizeof(int) * data->len + 1);
 	if (!tab)
 		ft_exit(data);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:30:20 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/15 04:36:39 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/16 20:07:45 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,21 @@ typedef struct s_data
 {
 	t_lst	*la;
 	t_lst	*lb;
+	int		len;
 	int		la_len;
+	int		lb_len;
 	int		median;
 }	t_data;
+
+typedef struct s_moves
+{
+	int	total;
+	int	ra;
+	int	rra;
+	int	rb;
+	int rrb;
+	int	value;
+}	t_moves;
 
 void	push_swap(t_data *data);
 void	check(t_data *data, int ac, char **av);
@@ -52,6 +64,7 @@ int		ft_strlen(char *str);
 t_lst	*ft_lstnew(t_data *data, int value);
 t_lst	*ft_lstlast(t_lst *lst);
 t_lst	*ft_lstndlast(t_lst *lst);
+void	ft_lstclear(t_lst *lst);
 int		ft_lstlen(t_lst *lst);
 
 void	sa(t_data *data);

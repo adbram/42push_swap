@@ -6,13 +6,13 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:49:07 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/15 04:12:35 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/16 20:07:56 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_lstclear(t_lst *lst)
+void	ft_lstclear(t_lst *lst)
 {
 	t_lst	*tmp;
 
