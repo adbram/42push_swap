@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:30:20 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/16 20:07:45 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/16 21:10:16 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_moves
 	int	ra;
 	int	rra;
 	int	rb;
-	int rrb;
+	int	rrb;
 	int	value;
 }	t_moves;
 
@@ -61,7 +61,7 @@ void	ft_putstr_fd(char *str, int fd);
 int		ft_atoi(t_data *data, char *nptr);
 int		ft_strlen(char *str);
 
-t_lst	*ft_lstnew(t_data *data, int value);
+t_lst	*ft_lstnew(t_data *data, int value, int pos);
 t_lst	*ft_lstlast(t_lst *lst);
 t_lst	*ft_lstndlast(t_lst *lst);
 void	ft_lstclear(t_lst *lst);
@@ -78,5 +78,8 @@ void	rr(t_data *data);
 void	rra(t_data *data);
 void	rrb(t_data *data);
 void	rrr(t_data *data);
+
+void	exec_move(t_data *data, t_moves *move);
+t_moves	*calc_next_move(t_data *data);
 
 #endif

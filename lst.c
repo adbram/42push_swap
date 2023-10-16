@@ -117,7 +117,7 @@ void	parse_la(t_data *data, int ac, char **av)
 	i = ac - 1;
 	while (i > 0)
 	{
-		new = ft_lstnew(data, ft_atoi(data, av[i]));
+		new = ft_lstnew(data, ft_atoi(data, av[i]), 0);
 		new->next = data->la;
 		data->la = new;
 		i--;
