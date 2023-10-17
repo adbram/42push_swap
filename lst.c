@@ -97,17 +97,27 @@ void	give_lst_pos(t_data *data)
 	free(tab);
 }
 
-void	parse_la(t_data *data, int ac, char **av)
+void	parse_la(t_data *data, char **av)
 {
-	int		i;
-	t_lst	*new;
+	int			i;
+	int			j;
+	t_lst		*new;
+	t_parsed	*parsed;
 
-	i = ac - 1;
+	i = data->ac - 1;
 	while (i > 0)
 	{
-		new = ft_lstnew(data, ft_atoi(data, av[i]), 0);
-		new->next = data->la;
-		data->la = new;
+		parsed = ft_split(data, av[i], " \n\t\v\f\r");
+		j = parsed->size - 1;
+		while (j >= 0)
+		{
+			new = ft_lstnew(data, ft_atoi(data, parsed->strs[j]), 0);
+			new->next = data->la;
+			data->la = new;
+			data->len++;
+			j--;
+		}
+		ft_splitclear(parsed);
 		i--;
 	}
 }
