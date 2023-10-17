@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:28:58 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/17 18:05:52 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:52:17 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,12 @@ int	main(int ac, char **av)
 
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
-		ft_exit(data);
+		ft_exit(data, EXIT_FAILURE);
 	data->la = NULL;
 	data->lb = NULL;
 	check(data, ac, av);
 	data->len = ac - 1;
 	data->median = data->len / 2;
 	push_swap(data);
-	ft_lstclear(data->la);
-	ft_lstclear(data->lb);
-	free(data);
+	ft_exit(data, EXIT_SUCCESS);
 }

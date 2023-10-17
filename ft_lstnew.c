@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 18:15:19 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/16 21:00:17 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:51:26 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_lst	*ft_lstnew(t_data *data, int value, int pos)
 
 	new = (t_lst *)malloc(sizeof(t_lst));
 	if (!new)
-		ft_exit(data);
+		ft_exit(data, EXIT_FAILURE);
 	new->value = value;
 	new->pos = pos;
 	new->next = NULL;

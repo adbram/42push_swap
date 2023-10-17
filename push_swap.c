@@ -6,13 +6,13 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:48:55 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/17 18:08:05 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/17 20:06:22 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	move_st_value(t_data *data)
+void	move_top(t_data *data, int pos)
 {
 	int		i;
 	t_lst	*tmp;
@@ -21,7 +21,7 @@ void	move_st_value(t_data *data)
 	tmp = data->la;
 	while (i < data->len)
 	{
-		if (tmp->pos == 0)
+		if (tmp->pos == pos)
 			break ;
 		tmp = tmp->next;
 		i++;
@@ -39,10 +39,12 @@ void	move_st_value(t_data *data)
 	}
 }
 
-static void	clear_la(t_data *data)
+void	clear_la(t_data *data)
 {
 	while (data->la)
 	{
+		if (is_sorted(data) == 1)
+			return ;
 		if (data->la->pos <= data->median)
 			pb(data);
 		else
@@ -55,16 +57,16 @@ static void	clear_la(t_data *data)
 
 void	push_swap(t_data *data)
 {
-	t_moves	*move;
-
-	give_lst_pos(data);
-	clear_la(data);
-	pa(data);
-	while (data->lb)
-	{
-		move = calc_next_move(data);
-		exec_move(data, move);
-		free(move);
-	}
-	move_st_value(data);
+	if (is_sorted(data) == 1)
+		ft_exit(data, EXIT_SUCCESS);
+	if (data->len == 2)
+		sa(data);
+	// else if (data->len == 3)
+	// 	algo_3(data);
+	// else if (data->len == 4)
+	// 	algo_4(data);
+	// else if (data->len == 5)
+	// 	algo_5(data);
+	else
+		algo_big(data);
 }

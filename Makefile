@@ -6,7 +6,7 @@
 #    By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/06 19:22:31 by aberramo          #+#    #+#              #
-#    Updated: 2023/10/16 21:34:02 by aberramo         ###   ########.fr        #
+#    Updated: 2023/10/17 18:44:44 by aberramo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS			= main.c\
 					actions1.c\
 					actions2.c\
 					actions3.c\
+					algo1.c\
 					moves1.c\
 					moves2.c
 OBJS			= $(SRCS:%.c=%.o)

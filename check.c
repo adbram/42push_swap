@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:46:30 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/15 04:16:15 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:50:56 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	check_double_values(t_data *data)
 		while (tmp2)
 		{
 			if (tmp1->value == tmp2->value)
-				ft_exit(data);
+				ft_exit(data, EXIT_FAILURE);
 			tmp2 = tmp2->next;
 		}
 		tmp1 = tmp1->next;

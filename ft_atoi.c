@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 18:18:59 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/15 04:14:27 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:51:19 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ static void	cmp_strint_overflow(t_data *data, char *str, int sign)
 			if (str[len - i] < INT_MAX[10 - i])
 				break ;
 			if (str[len - i] > INT_MAX[10 - i])
-				ft_exit(data);
+				ft_exit(data, EXIT_FAILURE);
 		}
 		else
 		{
 			if (str[len - i] < INT_MIN[10 - i])
 				break ;
 			if (str[len - i] > INT_MIN[10 - i])
-				ft_exit(data);
+				ft_exit(data, EXIT_FAILURE);
 		}
 		i--;
 	}
@@ -65,7 +65,7 @@ static void	check_int_overflow(t_data *data, char *str, int sign)
 
 	len = strint_len(str);
 	if (len > 10)
-		ft_exit(data);
+		ft_exit(data, EXIT_FAILURE);
 	if (len == 10)
 		cmp_strint_overflow(data, str, sign);
 }
@@ -106,7 +106,7 @@ int	ft_atoi(t_data *data, char *nptr)
 		i++;
 	}
 	if (nptr[i] != '\0')
-		ft_exit(data);
+		ft_exit(data, EXIT_FAILURE);
 	check_int_overflow(data, nptr, sign);
 	return (res * sign);
 }

@@ -12,6 +12,22 @@
 
 #include "push_swap.h"
 
+int	is_sorted(t_data *data)
+{
+	int		is_sorted;
+	t_lst	*tmp;
+
+	is_sorted = 1;
+	tmp = data->la;
+	while (tmp)
+	{
+		if (tmp->next && tmp->value > tmp->next->value)
+			is_sorted = 0;
+		tmp = tmp->next;
+	}
+	return (is_sorted);
+}
+
 int	*lst_to_tab(t_data *data)
 {
 	int		*tab;
@@ -20,7 +36,7 @@ int	*lst_to_tab(t_data *data)
 
 	tab = (int *)malloc(sizeof(int) * data->len);
 	if (!tab)
-		ft_exit(data);
+		ft_exit(data, EXIT_FAILURE);
 	i = 0;
 	tmp = data->la;
 	while (tmp)

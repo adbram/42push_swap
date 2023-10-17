@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:07:46 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/17 18:23:55 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:51:46 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static t_moves	*init_moves(t_data *data)
 
 	moves = (t_moves *)malloc(sizeof(t_moves));
 	if (!moves)
-		ft_exit(data);
+		ft_exit(data, EXIT_FAILURE);
 	moves->ra = 0;
 	moves->rb = 0;
 	moves->rra = 0;

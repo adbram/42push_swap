@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:30:20 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/17 18:14:18 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:53:32 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	print_lsts(t_data *data);
 void	give_lst_pos(t_data *data);
 int		*lst_to_tab(t_data *data);
 
-void	ft_exit(t_data *data);
+void	ft_exit(t_data *data, int status);
 void	ft_putstr_fd(char *str, int fd);
 int		ft_atoi(t_data *data, char *nptr);
 int		ft_strlen(char *str);
@@ -79,6 +79,14 @@ void	rrr(t_data *data);
 
 void	exec_move(t_data *data, t_moves *move);
 t_moves	*calc_next_move(t_data *data);
+void	move_top(t_data *data, int pos);
 void	moves_cmp(t_moves *curr_moves, t_moves *min_moves);
+void	clear_la(t_data *data);
+int		is_sorted(t_data *data);
+
+void	algo_3(t_data *data);
+void	algo_4(t_data *data);
+void	algo_5(t_data *data);
+void	algo_big(t_data *data);
 
 #endif
