@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 17:49:07 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/18 01:26:42 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/18 01:44:14 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 void	ft_splitclear(t_parsed *p)
 {
+	int	i;
+
 	if (p)
 	{
-		while (p->size > 0)
+		i = 0;
+		while (i < p->size)
 		{
-			free(p->strs[p->size]);
-			p->size--;
+			free(p->strs[i]);
+			i++;
 		}
+		free(p->strs);
 		free(p);
 	}
 }

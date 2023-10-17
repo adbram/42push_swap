@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 01:58:09 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/18 01:23:21 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/18 01:40:00 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,12 @@ t_parsed	*ft_split(t_data *data, char *str, char *charset)
 	if (!parsed)
 		ft_exit(data, EXIT_FAILURE);
 	parsed->size = ft_strscount(str, charset);
-	parsed->strs = (char **)malloc(sizeof(char *) * parsed->size + sizeof(int));
+	parsed->strs = (char **)malloc(sizeof(char *) * parsed->size);
 	if (!parsed->strs)
 	{
 		ft_splitclear(parsed);
 		ft_exit(data, EXIT_FAILURE);
 	}
 	ft_strscpy(data, parsed, str, charset);
-	parsed->strs[parsed->size] = 0;
 	return (parsed);
 }
