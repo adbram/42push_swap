@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:07:46 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/16 21:32:50 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/17 18:23:55 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,16 @@ static void	calc_la_moves(t_data *data, t_moves *moves)
 			moves->ra += sup->pos;
 		else
 			moves->rra += data->la_len - sup->pos;
+		free(sup);
+		free(min);
 		return ;
 	}
 	if (min->pos < data->la_len / 2)
 		moves->ra += min->pos;
 	else if (data->la_len > 1)
 		moves->rra += data->la_len - min->pos;
+	free(sup);
+	free(min);
 }
 
 static void	calc_next_move2(t_data *data, t_moves *c_m, t_moves *m_m, int i)

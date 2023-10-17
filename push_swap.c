@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:48:55 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/16 21:35:11 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/17 18:08:05 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	push_swap(t_data *data)
 	{
 		move = calc_next_move(data);
 		exec_move(data, move);
+		free(move);
 	}
 	move_st_value(data);
 }

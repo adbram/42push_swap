@@ -18,7 +18,7 @@ int	*lst_to_tab(t_data *data)
 	t_lst	*tmp;
 	int		i;
 
-	tab = (int *)malloc(sizeof(int) * data->len + 1);
+	tab = (int *)malloc(sizeof(int) * data->len);
 	if (!tab)
 		ft_exit(data);
 	i = 0;
@@ -29,11 +29,10 @@ int	*lst_to_tab(t_data *data)
 		tmp = tmp->next;
 		i++;
 	}
-	tab[i] = '\0';
 	return (tab);
 }
 
-static void	sort_tab(int *tab)
+static void	sort_tab(t_data *data, int *tab)
 {
 	int	i;
 	int	sorted;
@@ -44,9 +43,9 @@ static void	sort_tab(int *tab)
 	{
 		i = 0;
 		sorted = 1;
-		while (tab[i])
+		while (i < data->len)
 		{
-			if (tab[i + 1] && tab[i] > tab[i + 1])
+			if (i + 1 < data->len && tab[i] > tab[i + 1])
 			{
 				tmp = tab[i];
 				tab[i] = tab[i + 1];
@@ -65,7 +64,7 @@ void	give_lst_pos(t_data *data)
 	t_lst	*tmp;
 
 	tab = lst_to_tab(data);
-	sort_tab(tab);
+	sort_tab(data, tab);
 	tmp = data->la;
 	while (tmp)
 	{
@@ -84,31 +83,6 @@ void	give_lst_pos(t_data *data)
 	free(tab);
 }
 
-void	print_lsts(t_data *data)
-{
-	t_lst	*tmp;
-
-	if (data->la)
-	{
-		tmp = data->la;
-		while (tmp)
-		{
-			printf("la->value = %i, la->pos = %i\n", tmp->value, tmp->pos);
-			tmp = tmp->next;
-		}
-	}
-	printf("\n");
-	if (data->lb)
-	{
-		tmp = data->lb;
-		while (tmp)
-		{
-			printf("lb->value = %i, lb->pos = %i\n", tmp->value, tmp->pos);
-			tmp = tmp->next;
-		}
-	}
-}
-
 void	parse_la(t_data *data, int ac, char **av)
 {
 	int		i;
@@ -123,10 +97,3 @@ void	parse_la(t_data *data, int ac, char **av)
 		i--;
 	}
 }
-
-// i = 0;
-// while (tab[i])
-// {
-// 	printf("\"%i\"\n", tab[i]);
-// 	i++;
-// }

@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:28:58 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/16 20:08:11 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/17 18:05:52 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ int	main(int ac, char **av)
 	push_swap(data);
 	ft_lstclear(data->la);
 	ft_lstclear(data->lb);
+	free(data);
 }
