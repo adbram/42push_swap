@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:46:30 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/17 21:32:53 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/18 00:28:58 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ static void	check_double_vals(t_data *data)
 void	check(t_data *data, int ac, char **av)
 {
 	if (ac == 1)
-		exit(EXIT_SUCCESS);
+		ft_exit(data, EXIT_SUCCESS);
 	parse_la(data, ac, av);
 	if (ac == 2)
-		exit(EXIT_SUCCESS);
+		ft_exit(data, EXIT_SUCCESS);
 	check_double_vals(data);
 }

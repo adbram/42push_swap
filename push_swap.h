@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:30:20 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/17 23:51:48 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/18 00:29:19 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	ft_exit(t_data *data, int status);
 void	ft_putstr_fd(char *str, int fd);
 int		ft_atoi(t_data *data, char *nptr);
 int		ft_strlen(char *str);
+char	**ft_split(char *str, char *charset);
 
 t_lst	*ft_lstnew(t_data *data, int val, int pos);
 t_lst	*ft_lstlast(t_lst *lst);

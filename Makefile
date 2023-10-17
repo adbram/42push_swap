@@ -6,7 +6,7 @@
 #    By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/06 19:22:31 by aberramo          #+#    #+#              #
-#    Updated: 2023/10/17 18:44:44 by aberramo         ###   ########.fr        #
+#    Updated: 2023/10/18 00:04:16 by aberramo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS			= main.c\
 					ft_strlen.c\
 					ft_putstr_fd.c\
 					ft_atoi.c\
+					ft_split.c\
 					actions1.c\
 					actions2.c\
 					actions3.c\
