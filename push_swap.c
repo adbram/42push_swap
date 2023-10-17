@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:48:55 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/17 20:06:22 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/17 21:00:45 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,13 @@ void	push_swap(t_data *data)
 {
 	if (is_sorted(data) == 1)
 		ft_exit(data, EXIT_SUCCESS);
+	give_lst_pos(data);
 	if (data->len == 2)
 		sa(data);
-	// else if (data->len == 3)
-	// 	algo_3(data);
-	// else if (data->len == 4)
-	// 	algo_4(data);
-	// else if (data->len == 5)
-	// 	algo_5(data);
+	else if (data->len == 3)
+		algo_3(data);
+	else if (data->len == 5)
+		algo_5(data);
 	else
 		algo_big(data);
 }

@@ -6,13 +6,13 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:46:30 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/17 19:50:56 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/17 21:32:53 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	check_double_values(t_data *data)
+static void	check_double_vals(t_data *data)
 {
 	t_lst	*tmp1;
 	t_lst	*tmp2;
@@ -23,7 +23,7 @@ static void	check_double_values(t_data *data)
 		tmp2 = tmp1->next;
 		while (tmp2)
 		{
-			if (tmp1->value == tmp2->value)
+			if (tmp1->val == tmp2->val)
 				ft_exit(data, EXIT_FAILURE);
 			tmp2 = tmp2->next;
 		}
@@ -38,5 +38,5 @@ void	check(t_data *data, int ac, char **av)
 	parse_la(data, ac, av);
 	if (ac == 2)
 		exit(EXIT_SUCCESS);
-	check_double_values(data);
+	check_double_vals(data);
 }

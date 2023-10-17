@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:32:54 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/16 21:33:36 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/17 21:32:53 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	moves_cmp(t_moves *curr_moves, t_moves *min_moves)
 		min_moves->rra = curr_moves->rra;
 		min_moves->rrb = curr_moves->rrb;
 		min_moves->total = curr_moves->total;
-		min_moves->value = curr_moves->value;
+		min_moves->val = curr_moves->val;
 	}
 	curr_moves->ra = 0;
 	curr_moves->rb = 0;
 	curr_moves->rra = 0;
 	curr_moves->rrb = 0;
 	curr_moves->total = -1;
-	curr_moves->value = 0;
+	curr_moves->val = 0;
 }
 
 void	exec_move(t_data *data, t_moves *move)

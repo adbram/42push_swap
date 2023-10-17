@@ -14,18 +14,16 @@
 
 int	is_sorted(t_data *data)
 {
-	int		is_sorted;
 	t_lst	*tmp;
 
-	is_sorted = 1;
 	tmp = data->la;
 	while (tmp)
 	{
-		if (tmp->next && tmp->value > tmp->next->value)
-			is_sorted = 0;
+		if (tmp->next && tmp->val > tmp->next->val)
+			return (0);
 		tmp = tmp->next;
 	}
-	return (is_sorted);
+	return (1);
 }
 
 int	*lst_to_tab(t_data *data)
@@ -41,7 +39,7 @@ int	*lst_to_tab(t_data *data)
 	tmp = data->la;
 	while (tmp)
 	{
-		tab[i] = tmp->value;
+		tab[i] = tmp->val;
 		tmp = tmp->next;
 		i++;
 	}
@@ -87,7 +85,7 @@ void	give_lst_pos(t_data *data)
 		i = 0;
 		while (tab[i])
 		{
-			if (tab[i] == tmp->value)
+			if (tab[i] == tmp->val)
 			{
 				tmp->pos = i;
 				break ;

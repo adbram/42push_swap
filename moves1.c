@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:07:46 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/17 19:51:46 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/17 23:40:22 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static t_moves	*init_moves(t_data *data)
 	moves->rra = 0;
 	moves->rrb = 0;
 	moves->total = -1;
-	moves->value = 0;
+	moves->val = 0;
 	return (moves);
 }
 
@@ -37,15 +37,15 @@ static void	calc_la_moves2(t_data *data, t_moves *moves, t_lst *sup, t_lst *min)
 	tmp = data->la;
 	while (i < data->la_len)
 	{
-		if (min->pos < 0 || min->value > tmp->value)
+		if (min->pos < 0 || min->val > tmp->val)
 		{
-			min->value = tmp->value;
+			min->val = tmp->val;
 			min->pos = i;
 		}
-		if (moves->value < tmp->value && (sup->pos < 0
-				|| sup->value > tmp->value))
+		if (moves->val < tmp->val && (sup->pos < 0
+				|| sup->val > tmp->val))
 		{
-			sup->value = tmp->value;
+			sup->val = tmp->val;
 			sup->pos = i;
 		}
 		tmp = tmp->next;
@@ -63,7 +63,8 @@ static void	calc_la_moves(t_data *data, t_moves *moves)
 	calc_la_moves2(data, moves, sup, min);
 	if (sup->pos >= 0)
 	{
-		if (sup->pos < data->la_len / 2)
+		if ((data->la_len == 3 && sup->pos <= 1)
+			|| (sup->pos < data->la_len / 2))
 			moves->ra += sup->pos;
 		else
 			moves->rra += data->la_len - sup->pos;
@@ -71,7 +72,7 @@ static void	calc_la_moves(t_data *data, t_moves *moves)
 		free(min);
 		return ;
 	}
-	if (min->pos < data->la_len / 2)
+	if ((data->la_len == 3 && min->pos <= 1) || (min->pos < data->la_len / 2))
 		moves->ra += min->pos;
 	else if (data->la_len > 1)
 		moves->rra += data->la_len - min->pos;
@@ -107,7 +108,7 @@ t_moves	*calc_next_move(t_data *data)
 	min_moves = init_moves(data);
 	while (i < data->lb_len)
 	{
-		curr_moves->value = tmp->value;
+		curr_moves->val = tmp->val;
 		calc_next_move2(data, curr_moves, min_moves, i);
 		tmp = tmp->next;
 		i++;
