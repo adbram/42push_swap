@@ -6,7 +6,7 @@
 /*   By: aberramo <aberramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 18:18:59 by aberramo          #+#    #+#             */
-/*   Updated: 2023/10/21 16:11:48 by aberramo         ###   ########.fr       */
+/*   Updated: 2023/10/21 16:18:19 by aberramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,9 @@ int	ft_atoi(t_data *data, char *nptr)
 			break ;
 		i++;
 	}
-	if (nptr[i] != '\0')
-		ft_exit(data, EXIT_FAILURE);
 	sign = get_sign(nptr, &i);
+	if (nptr[i] == '\0')
+		ft_exit(data, EXIT_FAILURE);
 	while (nptr[i] != '\0' && nptr[i] >= 48 && nptr[i] <= 57)
 	{
 		res = (res * 10) + (nptr[i] - 48);
