@@ -83,7 +83,7 @@ void	give_lst_pos(t_data *data)
 	while (tmp)
 	{
 		i = 0;
-		while (tab[i])
+		while (i < data->len)
 		{
 			if (tab[i] == tmp->val)
 			{
